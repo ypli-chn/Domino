@@ -1,4 +1,3 @@
-![](images/domino.jpg)
 # Domino
 
 [中文版](./README-CN.md)

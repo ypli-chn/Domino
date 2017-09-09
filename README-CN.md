@@ -1,5 +1,3 @@
-![](images/domino.jpg)
-
 # Domino
 
 [English](./README.md)
