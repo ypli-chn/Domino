@@ -769,6 +769,11 @@ static NSInteger DominoInvocationParamsOffset = 2;
     event = [self.tracker handleEvent:event];
     pthread_mutex_unlock(&_mutex);
     if(event != nil) {
+#ifdef YLResponder
+        if ([self.host isKindOfClass:[YLResponder class]]) {
+            [[(YLResponder *)self.host nextResponder].domino routerEvent:event];
+        }
+#endif
         for (Domino *nextNode in self.routingTable) {
             [nextNode routerEvent:event];
         }
@@ -781,11 +786,6 @@ static NSInteger DominoInvocationParamsOffset = 2;
     pthread_mutex_lock(&_mutex);
     if (_routingTable == nil) {
         _routingTable = [[NSHashTable alloc] initWithOptions:NSHashTableWeakMemory capacity:1];
-#ifdef YLResponder
-        if ([self.host isKindOfClass:[YLResponder class]]) {
-            [_routingTable addObject:[(YLResponder *)self.host nextResponder].domino];
-        }
-#endif
     }
     pthread_mutex_unlock(&_mutex);
     return _routingTable;

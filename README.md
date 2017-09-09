@@ -174,7 +174,7 @@ You can change mode by `[Domino setTriggerMode:DominoTriggerModeBackground]`. Mo
 
 ## Installation
 
-If you use Cocoapods, add `pod 'Domino', '~> 1.0.0'` to  your Podfile.
+If you use Cocoapods, add `pod 'Domino', '~> 1.0.1'` to  your Podfile.
 
 You can also add the two files `Domino.h/m` to your project. There are no further requirements.
 

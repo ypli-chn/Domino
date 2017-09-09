@@ -176,7 +176,7 @@ typedef NS_ENUM(NSInteger, DominoTriggerMode) {
 
 ## 安装
 
-如果使用 Cocoapods的话，将`pod 'Domino', '~> 1.0.0'` 加到你的Podfile文件里即可。
+如果使用 Cocoapods的话，将`pod 'Domino', '~> 1.0.1'` 加到你的Podfile文件里即可。
 
 你也可以直接把 `Domino.h/m` 这两个文件直接拖到你的工程里面。
 
