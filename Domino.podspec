@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name = 'Domino'
-s.version = '1.0.0'
+s.version = '1.0.1'
 s.license      = { :type => 'MIT', :file => 'LICENSE' }
 s.summary = 'Domino is a communication mechanism among multi-level objects for Objective-C.'
 s.homepage = 'https://github.com/ypli-chn/Domino'
