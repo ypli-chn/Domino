@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, DominoTriggerMode) {
     DominoTriggerModeMainThread,  // default
@@ -60,11 +61,11 @@ BOOL DominoProtocolContainSelector(Protocol *protocol, SEL selector);
 #define DominoSelectorEvents(...) interface DominoEventTrigger()<__VA_ARGS__> @end
 
 @interface DominoEventTrigger : NSProxy
-- (void)postEvent:(NSString *)event params:(NSDictionary *)params;
+- (void)postEvent:(NSString *)event params:(NSDictionary * _Nullable)params;
 @end
 
 
-typedef void (^DominoEventHandler)(NSDictionary *params);
+typedef void (^DominoEventHandler)(NSDictionary * _Nullable params);
 @interface DominoEventTracker : NSObject
 /// add subscriber
 - (void)subscribeEvent:(NSString *)event handler:(DominoEventHandler)handler;
@@ -82,3 +83,5 @@ typedef void (^DominoEventHandler)(NSDictionary *params);
 @interface NSObject (Domino)
 @property (nonatomic, readonly) Domino *domino;
 @end
+
+NS_ASSUME_NONNULL_END
