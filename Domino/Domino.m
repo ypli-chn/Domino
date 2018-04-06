@@ -731,6 +731,7 @@ static NSInteger DominoInvocationParamsOffset = 2;
         self.host = host;
         _trigger = [[DominoEventTrigger alloc] initWithHost:host];
         _tracker = [[DominoEventTracker alloc] initWithHost:host];
+        _routingTable = [[NSHashTable alloc] initWithOptions:NSHashTableWeakMemory capacity:1];
     }
     return self;
 }
@@ -782,15 +783,6 @@ static NSInteger DominoInvocationParamsOffset = 2;
 
 
 #pragma mark Getter & Setter
-- (NSHashTable *)routingTable {
-    pthread_mutex_lock(&_mutex);
-    if (_routingTable == nil) {
-        _routingTable = [[NSHashTable alloc] initWithOptions:NSHashTableWeakMemory capacity:1];
-    }
-    pthread_mutex_unlock(&_mutex);
-    return _routingTable;
-}
-
 static DominoTriggerMode _triggerMode = DominoTriggerModeMainThread;
 + (void)setTriggerMode:(DominoTriggerMode)triggerMode {
     pthread_mutex_lock(&domino_global_mutex);
